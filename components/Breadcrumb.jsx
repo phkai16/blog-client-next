@@ -3,7 +3,7 @@ import React from "react";
 import { HiHome } from "react-icons/hi";
 const Breadcrumbs = ({ category, title }) => {
   return (
-    <div className="container py-5 mx-auto">
+    <div className="container pt-5 mx-auto">
       <Breadcrumb
         aria-label="Solid background breadcrumb example"
         className=" py-3 px-5 dark:bg-gray-900"

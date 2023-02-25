@@ -12,7 +12,7 @@ const Article = ({ article }) => {
       <section className="text-gray-600 body-font">
         <div className="container px-5 pt-10 pb-24 mx-auto flex flex-col">
           <div className="lg:w-4/6 mx-auto">
-            <div className="rounded-lg h-64 overflow-hidden">
+            <div className="rounded-lg h-72 overflow-hidden">
               <Image
                 alt="The guitarist in the concert."
                 src={article.thumbnailImg}
@@ -38,7 +38,7 @@ const Article = ({ article }) => {
                   </svg>
                 </div>
                 <div className="flex flex-col items-center text-center justify-center">
-                  <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">
+                  <h2 className="font-medium title-font mt-4 text-gray-900 text-lg capitalize">
                     {article.username}
                   </h2>
                   <div className="w-12 h-1 bg-blue-600 rounded mt-2 mb-4" />

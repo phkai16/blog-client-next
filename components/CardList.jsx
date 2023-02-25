@@ -10,7 +10,7 @@ const CardList = ({ listArticles }) => {
         <div className="flex flex-wrap -m-4">
           {listArticles.length === 0 && (
             <div className="flex flex-col items-center justify-center mx-auto">
-              <h3 className="mb-10 text-lg font-medium">
+              <h3 className="mb-10 text-lg font-normal text-gray-600">
                 Oop, no articles available...
               </h3>
               <img src="empty-box.png" alt="empty-box" className="h-32" />

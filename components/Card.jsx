@@ -13,12 +13,16 @@ const Card = ({ article }) => {
         />
         <div className="p-6">
           <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1 uppercase">
-            {article.categories.join(", ")}
+            {article.categories.length > 3
+              ? article.categories.slice(0, 3).join(", ") + "..."
+              : article.categories.join(", ")}
           </h2>
           <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
             {article.title}
           </h1>
-          <p className="leading-relaxed mb-3">{article.description}</p>
+          <p className="leading-relaxed mb-3">
+            {article.description.slice(0, 90) + "..."}
+          </p>
           <div className="flex items-center flex-wrap ">
             <Link
               href={`articles/${article._id}`}
