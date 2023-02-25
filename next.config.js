@@ -2,10 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    remotePatterns: {
-      protocol: "http",
-      hostname: "**",
-    },
+    remotePatterns: [{ protocol: "http", hostname: "**" }],
   },
 };
 
