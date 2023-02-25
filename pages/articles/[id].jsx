@@ -3,10 +3,14 @@ import SubBanner from "../../components/SubBanner";
 import Breadcrumb from "../../components/Breadcrumb";
 import Image from "next/image";
 import axios from "axios";
+import Head from "next/head";
 
 const Article = ({ article }) => {
   return (
     <>
+      <Head>
+        <title>Bloggie - {article.title}</title>
+      </Head>
       <SubBanner />
       <Breadcrumb category={article.categories[0]} title={article.title} />
       <section className="text-gray-600 body-font">
@@ -62,13 +66,27 @@ const Article = ({ article }) => {
 };
 
 export default Article;
-export const getServerSideProps = async (params) => {
+
+export async function getStaticPaths() {
+  const articles = await axios
+    .get(`${process.env.BASE_URL}/api/articles`)
+    .then((res) => res.data);
+
+  // Get the paths we want to pre-render based on posts
+  const paths = articles.map((article) => ({
+    params: { id: article._id },
+  }));
+  return { paths, fallback: "blocking" };
+}
+
+export const getStaticProps = async ({ params }) => {
   const article = await axios.get(
-    `${process.env.BASE_URL}/api/articles/${params.params.id}`
+    `${process.env.BASE_URL}/api/articles/${params.id}`
   );
   return {
     props: {
       article: article.data,
     },
+    revalidate: 10,
   };
 };

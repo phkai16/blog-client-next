@@ -18,7 +18,7 @@ export default function Home({ categoryList, articleList }) {
   );
 }
 
-export const getServerSideProps = async (ctx) => {
+export const getStaticProps = async (ctx) => {
   const cat = await axios.get(`${process.env.BASE_URL}/api/categories`);
   const articles = await axios.get(`${process.env.BASE_URL}/api/articles`);
 
@@ -27,5 +27,6 @@ export const getServerSideProps = async (ctx) => {
       categoryList: cat.data,
       articleList: articles.data,
     },
+    revalidate: 10,
   };
 };
