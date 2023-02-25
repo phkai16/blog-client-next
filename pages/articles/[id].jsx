@@ -17,11 +17,10 @@ const Article = ({ article }) => {
         <div className="container px-5 pt-10 pb-24 mx-auto flex flex-col">
           <div className="lg:w-4/6 mx-auto">
             <div className="rounded-lg h-72 overflow-hidden">
-              <Image
+              <img
                 alt="The guitarist in the concert."
                 src={article.thumbnailImg}
-                width={500}
-                height={500}
+                style={{ width: 500, height: 500 }}
                 className="object-cover object-center h-full w-full"
               />
             </div>
