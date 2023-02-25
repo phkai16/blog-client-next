@@ -10,13 +10,14 @@ const Article = ({ article }) => {
     <>
       <Head>
         <title>Bloggie - {article.title}</title>
+        <link rel="icon" href="/logo.ico" />
       </Head>
       <SubBanner />
       <Breadcrumb category={article.categories[0]} title={article.title} />
       <section className="text-gray-600 body-font">
         <div className="container px-5 pt-10 pb-24 mx-auto flex flex-col">
           <div className="lg:w-4/6 mx-auto">
-            <div class="rounded-lg h-72 overflow-hidden">
+            <div class="rounded-lg h-96 overflow-hidden">
               <img
                 alt="Article Thumbnail"
                 class="object-cover object-center h-full w-full"
@@ -71,7 +72,6 @@ export async function getStaticPaths() {
     .get(`${process.env.BASE_URL}/api/articles`)
     .then((res) => res.data);
 
-  // Get the paths we want to pre-render based on posts
   const paths = articles.map((article) => ({
     params: { id: article._id },
   }));
